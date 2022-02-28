@@ -23,10 +23,9 @@ public class LayoutModelListener extends BaseModelListener<Layout> {
 		try {
 			Group group = _groupGroupLocalService.getGroup(layout.getGroupId());
 
-			if (group.getFriendlyURL(
-				).startsWith(
-					"/template-"
-				)) {
+			String friendlyURL = group.getFriendlyURL();
+
+			if ((friendlyURL != null) && friendlyURL.startsWith("/template-")) {
 
 				// Reverse layoutUpdateable default value only
 				// in the realm of site templates
